@@ -4,10 +4,14 @@ import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Scanner;
 
 @Controller
+@RequestMapping("/movie")
 public class MovieController {
 
     @Autowired
@@ -21,15 +25,10 @@ public class MovieController {
         this.movieServiceInterface = movieServiceInterface;
     }
 
-    public void addUsingConsole() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(" Entrer le titre du film");
-        String titre = sc.nextLine();
-        System.out.println(" Entrer le genre du film");
-        String genre = sc.nextLine();
-        Movie movie = new Movie();
-        movie.setTitle(titre);
-        movie.setGenre(genre);
-        movieServiceInterface.registerMovie(movie);
+    @RequestMapping("/{id}")
+    public String displayMovieCard(@PathVariable("id") String id, Model model) {
+        final Movie movie = movieServiceInterface.getMovieById(Long.parseLong(id));
+        model.addAttribute("movie", movie);
+        return "movie-details";
     }
 }
