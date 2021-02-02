@@ -9,7 +9,7 @@ public class AboutUsController {
     @RequestMapping("/about-us")
     public String displayFullDetails(){
 
-        System.out.println("Tentative d'affichage de l'a-propos.");
+        System.out.println("Tentative d'affichage de la page A-propos.");
         return "about-us";
     }
 }
