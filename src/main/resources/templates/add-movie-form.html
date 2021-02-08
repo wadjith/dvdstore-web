@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Movie</title>
+
+</head>
+<body>
+    <h1>Enregistrer un film</h1>
+    <form method="post" action="movie" th:object="${movie}">
+        Titre: <input type="text" th:field="*{title}" />
+        Genre: <input type="text" th:field="*{genre}" />
+        Description: <input type="text" th:field="*{description}" />
+        <input type="submit" value="OK">
+    </form>
+
+</body>
+</html>
