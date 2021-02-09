@@ -29,7 +29,7 @@ public class HomeController {
     }
 
     @GetMapping("/add-movie-form")
-    public @ModelAttribute("movie") void displayMovieForm(Movie movie){
+    public void displayMovieForm(@ModelAttribute Movie movie){
 
     }
 }
