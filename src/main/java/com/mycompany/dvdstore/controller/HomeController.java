@@ -1,6 +1,7 @@
 package com.mycompany.dvdstore.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
+import com.mycompany.dvdstore.modelform.MovieForm;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class HomeController {
     }
 
     @GetMapping("/add-movie-form")
-    public void displayMovieForm(@ModelAttribute Movie movie){
+    public void displayMovieForm(@ModelAttribute MovieForm movieForm){
 
     }
 }
