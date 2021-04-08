@@ -29,8 +29,8 @@ public class MovieResource {
     }
 
     @GetMapping
-    public List<Movie> list(){
-        List<Movie> movies = new ArrayList<>();
+    public Iterable<Movie> list(){
+        Iterable<Movie> movies = new ArrayList<>();
         movies = movieServiceInterface.getMovieList();
         return movies;
     }

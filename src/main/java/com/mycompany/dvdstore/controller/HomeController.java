@@ -23,8 +23,8 @@ public class HomeController {
     }
 
     @GetMapping("/dvdstore-home")
-    public @ModelAttribute("movies") List<Movie> displayHome(){
-        List<Movie> movies = new ArrayList<>();
+    public @ModelAttribute("movies") Iterable<Movie> displayHome(){
+        Iterable<Movie> movies = new ArrayList<>();
         movies = movieService.getMovieList();
         return movies;
     }
