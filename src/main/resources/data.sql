@@ -4,7 +4,7 @@ DELETE FROM APP_USER;
 DELETE FROM MOVIE;
 DELETE FROM ACTOR;
 
-INSERT INTO ACTOR(LAST_NAME, FIRST_NAME) VALUES 
+INSERT INTO ACTOR(LAST_NAME, FIRST_NAME) VALUES
   ("L'éclair", "Buzz"),(NULL, "Woody"),(NULL, "Jessie"),("Robinson", "Leon"),("Candy", "John"),("Yoba", "Malik"),
   ("Gibson", "Mel"),("Marceau", "Sophie"),("Moore", "Roger"),("Lonsdale", "Michael");
 
@@ -15,7 +15,8 @@ INSERT INTO MOVIE (TITLE,GENRE,DESCRIPTION,ID_MAIN_ACTOR) VALUES
   ('Moonraker','THRILLER',"L'agent secret britannique James Bond enquête sur la disparition d'une navette spatiale americaine, Moonraker, confiee au gouvernement britannique. 007 se rend aux Etats-Unis pour interroger le responsable de la construction de la navette, Sir Hugo Drax.",(select ID from ACTOR where FIRST_NAME="Roger"));
 
 
-INSERT INTO MOVIE_SEC_ACTORS(ID_MOVIE, ID_ACTOR) VALUES ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from ACTOR where FIRST_NAME="Woody")),
+INSERT INTO MOVIE_SEC_ACTORS(ID_MOVIE, ID_ACTOR) VALUES
+  ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from ACTOR where FIRST_NAME="Woody")),
   ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from ACTOR where FIRST_NAME="Jessie")),
   ((select ID from MOVIE where TITLE="Rasta Rocket"),(select ID from ACTOR where FIRST_NAME="John")),
   ((select ID from MOVIE where TITLE="Rasta Rocket"),(select ID from ACTOR where FIRST_NAME="Malik")),
@@ -24,7 +25,7 @@ INSERT INTO MOVIE_SEC_ACTORS(ID_MOVIE, ID_ACTOR) VALUES ((select ID from MOVIE w
 
 INSERT INTO APP_USER (USERNAME) VALUES ('John Doe'),('Tom Pike'),('Elton James'),('Bobby Wing');
 
-INSERT INTO REVIEW (ID_MOVIE,ID_REVIEWER,MARK,REVIEW_COMMENT) VALUES 
+INSERT INTO REVIEW (ID_MOVIE,ID_REVIEWER,MARK,REVIEW_COMMENT) VALUES
   ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from APP_USER where USERNAME='John Doe'),2,"Franchement ce film est pas terrible"),
   ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from APP_USER where USERNAME='Tom Pike'),5,"Super cool pour les enfants !"),
   ((select ID from MOVIE where TITLE="Toys Story 3"),(select ID from APP_USER where USERNAME='Elton James'),5,NULL),
